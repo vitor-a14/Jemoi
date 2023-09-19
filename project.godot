@@ -8,16 +8,31 @@
 
 config_version=5
 
+[MonoCustomResourceRegistry]
+
+ClassPrefix=""
+SearchType=0
+ResourceScriptDirectories=["res://"]
+
 [application]
 
 config/name="Jemoi"
 run/main_scene="res://scenes/gameplay.tscn"
 config/features=PackedStringArray("4.1", "C#", "Mobile")
-config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=460
+window/size/viewport_height=844
+window/handheld/orientation=1
 
 [dotnet]
 
 project/assembly_name="Jemoi"
+
+[editor_plugins]
+
+enabled=PackedStringArray()
 
 [rendering]
 

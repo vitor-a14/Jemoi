@@ -1,17 +1,15 @@
 using Godot;
 using System;
 
-public partial class Test : Node2D
+public partial class EnemyCard : Node
 {
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		GD.Print("Hello Godot! I hope we become good friends :)");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		
 	}
 }

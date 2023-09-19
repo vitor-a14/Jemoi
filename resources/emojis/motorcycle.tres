@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Emoji" load_steps=3 format=3 uid="uid://bi8wo5bfdg2h2"]
+
+[ext_resource type="Texture2D" uid="uid://cqr2icbdhxomx" path="res://sprites/emojis/1f3cd.png" id="1_mi5sm"]
+[ext_resource type="Script" path="res://scripts/Emoji.cs" id="1_sifhe"]
+
+[resource]
+script = ExtResource("1_sifhe")
+id = 1
+name = "motorcycle"
+price = 0
+artwork = ExtResource("1_mi5sm")
+weaknesses = "car house explosion man mage vampire zombie world sun star hurricane ghost diamond moon dog demon skull fire ninja dinosaur saturn time radiation"

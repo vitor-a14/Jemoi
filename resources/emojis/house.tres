@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Emoji" load_steps=3 format=3 uid="uid://bwmgfqu2guy4"]
+
+[ext_resource type="Texture2D" uid="uid://fne08gt8gt8o" path="res://sprites/emojis/1f3e0.png" id="1_bio5d"]
+[ext_resource type="Script" path="res://scripts/Emoji.cs" id="1_jany7"]
+
+[resource]
+script = ExtResource("1_jany7")
+id = 3
+name = "house"
+price = 0
+artwork = ExtResource("1_bio5d")
+weaknesses = "explosion mage world sun star hurricane moon demon skull fire dinosaur saturn time radiation"

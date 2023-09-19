@@ -1,11 +1,73 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqtee4uky5bq4"]
+[gd_scene load_steps=8 format=3 uid="uid://dqtee4uky5bq4"]
 
-[ext_resource type="Script" path="res://scripts/Test.cs" id="1_dmnk3"]
-[ext_resource type="Texture2D" uid="uid://ddrdgskjg45qq" path="res://icon.svg" id="2_tpha5"]
+[ext_resource type="PackedScene" uid="uid://rvq2gyehfs2h" path="res://resources/cards/PlayerCard.tscn" id="1_ovje6"]
+[ext_resource type="Resource" uid="uid://cbjsijv6l86m2" path="res://resources/emojis/car.tres" id="2_c1ira"]
+[ext_resource type="Resource" uid="uid://clrr7hgaxowg2" path="res://resources/emojis/bow.tres" id="3_7r7wb"]
+[ext_resource type="Resource" uid="uid://bwmgfqu2guy4" path="res://resources/emojis/house.tres" id="4_pwc7u"]
+[ext_resource type="Resource" uid="uid://bi8wo5bfdg2h2" path="res://resources/emojis/motorcycle.tres" id="5_u5qim"]
 
-[node name="Gameplay" type="Node2D"]
-script = ExtResource("1_dmnk3")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_is505"]
+bg_color = Color(0.117647, 0.666667, 0.792157, 1)
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(316, 211)
-texture = ExtResource("2_tpha5")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxnw6"]
+bg_color = Color(0.85098, 0.85098, 0.85098, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background Color" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_is505")
+
+[node name="Player Deck" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -327.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lxnw6")
+
+[node name="Container" type="FlowContainer" parent="Player Deck"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="PlayerCard" parent="Player Deck/Container" instance=ExtResource("1_ovje6")]
+layout_mode = 2
+
+[node name="PlayerCard2" parent="Player Deck/Container" instance=ExtResource("1_ovje6")]
+layout_mode = 2
+emojiResource = ExtResource("2_c1ira")
+
+[node name="PlayerCard3" parent="Player Deck/Container" instance=ExtResource("1_ovje6")]
+layout_mode = 2
+emojiResource = ExtResource("3_7r7wb")
+
+[node name="PlayerCard4" parent="Player Deck/Container" instance=ExtResource("1_ovje6")]
+layout_mode = 2
+emojiResource = ExtResource("4_pwc7u")
+
+[node name="PlayerCard5" parent="Player Deck/Container" instance=ExtResource("1_ovje6")]
+layout_mode = 2
+emojiResource = ExtResource("5_u5qim")
+
+[node name="PlayerCard6" parent="Player Deck/Container" instance=ExtResource("1_ovje6")]
+layout_mode = 2
