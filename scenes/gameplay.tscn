@@ -110,7 +110,7 @@ offset_bottom = 48.0
 text = "128"
 fit_content = true
 
-[node name="AddCard" type="TextureButton" parent="."]
+[node name="AddCard" type="TextureButton" parent="." node_paths=PackedStringArray("container")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -127,5 +127,6 @@ texture_normal = ExtResource("3_ojahf")
 texture_pressed = ExtResource("4_rmmcj")
 script = ExtResource("5_pq17c")
 card = ExtResource("6_evyxh")
+container = NodePath("../Enemy Deck/Container")
 
 [connection signal="button_down" from="AddCard" to="AddCard" method="OnButtonDown"]

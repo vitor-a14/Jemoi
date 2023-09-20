@@ -15,28 +15,10 @@ public struct ContainerContent
 
 public partial class SmoothContainer : Node
 {
-
-	public static SmoothContainer Instance { get; set; } //this will not work
-
 	[Export] public PackedScene pivotScene;
 	[Export] public float contentMovementSpeed;
 
 	public List<ContainerContent> contents = new List<ContainerContent>();
-
-	public override void _Ready()
-	{
-		if(Instance == null) Instance = this;
-		else GD.PrintErr("Instance is already running");
-	}
-
-	public override void _Process(double delta)
-	{
-		foreach(ContainerContent containerContent in contents) 
-		{
-			//containerContent.content.SetPosition(containerContent.pivot.GlobalPosition);
-			//containerContent.content.Position.Lerp(containerContent.pivot.GlobalPosition, 150);
-		}
-	}
 
 	public override void _PhysicsProcess(double delta) 
 	{
@@ -67,5 +49,4 @@ public partial class SmoothContainer : Node
 			}
 		}
 	}
-
 }
