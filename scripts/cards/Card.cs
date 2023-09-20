@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class Card : Node
+public partial class Card : Control
 {
 	[Export] public Emoji emojiResource;
 
@@ -8,7 +8,7 @@ public partial class Card : Node
 
 	protected void SetCard()
 	{
-		artwork = GetNode<TextureRect>("Artwork");
+		artwork = GetChild(0).GetNode<TextureRect>("Artwork");
 		artwork.Texture = emojiResource.artwork;
 	}
 

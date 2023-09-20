@@ -17,7 +17,7 @@ ResourceScriptDirectories=["res://"]
 [application]
 
 config/name="Jemoi"
-run/main_scene="res://scenes/gameplay.tscn"
+run/main_scene="res://scenes/Gameplay.tscn"
 config/features=PackedStringArray("4.1", "C#", "Mobile")
 
 [display]

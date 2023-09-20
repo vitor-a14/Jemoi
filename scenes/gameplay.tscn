@@ -1,16 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqtee4uky5bq4"]
+[gd_scene load_steps=11 format=3 uid="uid://csit3tjysmbcc"]
 
-[ext_resource type="PackedScene" uid="uid://rvq2gyehfs2h" path="res://resources/cards/PlayerCard.tscn" id="1_ovje6"]
-[ext_resource type="Resource" uid="uid://cbjsijv6l86m2" path="res://resources/emojis/car.tres" id="2_c1ira"]
-[ext_resource type="Resource" uid="uid://clrr7hgaxowg2" path="res://resources/emojis/bow.tres" id="3_7r7wb"]
-[ext_resource type="Resource" uid="uid://bwmgfqu2guy4" path="res://resources/emojis/house.tres" id="4_pwc7u"]
-[ext_resource type="Resource" uid="uid://bi8wo5bfdg2h2" path="res://resources/emojis/motorcycle.tres" id="5_u5qim"]
+[ext_resource type="Script" path="res://scripts/SmoothContainer.cs" id="1_6xaw4"]
+[ext_resource type="PackedScene" uid="uid://cqcwy2fmy8uil" path="res://scenes/cards/ContainerPivot.tscn" id="2_ro86a"]
+[ext_resource type="Texture2D" uid="uid://du4hk6rnydts5" path="res://sprites/interface/card.png" id="3_ojahf"]
+[ext_resource type="Texture2D" uid="uid://buosysk00vc5b" path="res://sprites/interface/coin.png" id="3_xs5nw"]
+[ext_resource type="Texture2D" uid="uid://wkqx7qttse3l" path="res://sprites/interface/card-pressed.png" id="4_rmmcj"]
+[ext_resource type="Script" path="res://scripts/DebugButton.cs" id="5_pq17c"]
+[ext_resource type="PackedScene" uid="uid://rvq2gyehfs2h" path="res://scenes/cards/PlayerCard.tscn" id="6_evyxh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_is505"]
 bg_color = Color(0.117647, 0.666667, 0.792157, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxnw6"]
 bg_color = Color(0.85098, 0.85098, 0.85098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y6kap"]
+bg_color = Color(0, 0.580392, 0.913725, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -35,7 +40,7 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -327.0
+offset_top = -236.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_lxnw6")
@@ -46,28 +51,81 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 12.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
+script = ExtResource("1_6xaw4")
+pivotScene = ExtResource("2_ro86a")
+contentMovementSpeed = 8.0
 
-[node name="PlayerCard" parent="Player Deck/Container" instance=ExtResource("1_ovje6")]
-layout_mode = 2
+[node name="Enemy Deck" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 64.0
+offset_bottom = 419.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lxnw6")
 
-[node name="PlayerCard2" parent="Player Deck/Container" instance=ExtResource("1_ovje6")]
-layout_mode = 2
-emojiResource = ExtResource("2_c1ira")
+[node name="Container" type="FlowContainer" parent="Enemy Deck"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_6xaw4")
+pivotScene = ExtResource("2_ro86a")
+contentMovementSpeed = 8.0
 
-[node name="PlayerCard3" parent="Player Deck/Container" instance=ExtResource("1_ovje6")]
-layout_mode = 2
-emojiResource = ExtResource("3_7r7wb")
+[node name="Header" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 64.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_y6kap")
 
-[node name="PlayerCard4" parent="Player Deck/Container" instance=ExtResource("1_ovje6")]
-layout_mode = 2
-emojiResource = ExtResource("4_pwc7u")
+[node name="Coin Icon" type="TextureRect" parent="Header"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 1
+offset_left = 11.0
+offset_top = 16.0
+offset_right = 83.0
+offset_bottom = 88.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_xs5nw")
 
-[node name="PlayerCard5" parent="Player Deck/Container" instance=ExtResource("1_ovje6")]
-layout_mode = 2
-emojiResource = ExtResource("5_u5qim")
+[node name="RichTextLabel" type="RichTextLabel" parent="Header"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 25.0
+offset_right = 175.0
+offset_bottom = 48.0
+text = "128"
+fit_content = true
 
-[node name="PlayerCard6" parent="Player Deck/Container" instance=ExtResource("1_ovje6")]
-layout_mode = 2
+[node name="AddCard" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 126.0
+offset_top = 87.0
+offset_right = 226.0
+offset_bottom = 187.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_ojahf")
+texture_pressed = ExtResource("4_rmmcj")
+script = ExtResource("5_pq17c")
+card = ExtResource("6_evyxh")
+
+[connection signal="button_down" from="AddCard" to="AddCard" method="OnButtonDown"]
