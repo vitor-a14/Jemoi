@@ -1,15 +1,18 @@
-using Godot;
-using System;
-
-public partial class EnemyCard : Node
+public partial class EnemyCard : Card
 {
-	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		emojiResource = EmojiManager.Instance.GetRandomEmoji();
+		SetCard();
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	public override void OnButtonDown() 
 	{
+		base.OnButtonDown();
+	}
+
+	public override void OnButtonUp() 
+	{
+		base.OnButtonUp();
 	}
 }

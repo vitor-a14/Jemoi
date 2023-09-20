@@ -1,21 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://csit3tjysmbcc"]
+[gd_scene load_steps=13 format=3 uid="uid://csit3tjysmbcc"]
 
-[ext_resource type="Script" path="res://scripts/SmoothContainer.cs" id="1_6xaw4"]
-[ext_resource type="PackedScene" uid="uid://cqcwy2fmy8uil" path="res://scenes/cards/ContainerPivot.tscn" id="2_ro86a"]
+[ext_resource type="Script" path="res://scripts/interface/SmoothContainer.cs" id="1_7870i"]
+[ext_resource type="PackedScene" uid="uid://cqcwy2fmy8uil" path="res://scenes/interface/ContainerPivot.tscn" id="2_ulqh5"]
+[ext_resource type="PackedScene" uid="uid://dl3pwtr637yd2" path="res://scenes/interface/Header.tscn" id="3_jvie3"]
 [ext_resource type="Texture2D" uid="uid://du4hk6rnydts5" path="res://sprites/interface/card.png" id="3_ojahf"]
-[ext_resource type="Texture2D" uid="uid://buosysk00vc5b" path="res://sprites/interface/coin.png" id="3_xs5nw"]
 [ext_resource type="Texture2D" uid="uid://wkqx7qttse3l" path="res://sprites/interface/card-pressed.png" id="4_rmmcj"]
-[ext_resource type="Script" path="res://scripts/DebugButton.cs" id="5_pq17c"]
 [ext_resource type="PackedScene" uid="uid://rvq2gyehfs2h" path="res://scenes/cards/PlayerCard.tscn" id="6_evyxh"]
+[ext_resource type="Script" path="res://scripts/interface/DebugButton.cs" id="7_lfisv"]
+[ext_resource type="Script" path="res://scripts/game/EmojiManager.cs" id="8_dy4c1"]
+[ext_resource type="Script" path="res://scripts/game/MatchManager.cs" id="9_km56q"]
+[ext_resource type="PackedScene" uid="uid://dxie3tpqsksky" path="res://scenes/cards/EnemyCard.tscn" id="10_kyues"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_is505"]
 bg_color = Color(0.117647, 0.666667, 0.792157, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxnw6"]
 bg_color = Color(0.85098, 0.85098, 0.85098, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y6kap"]
-bg_color = Color(0, 0.580392, 0.913725, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -45,7 +45,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_lxnw6")
 
-[node name="Container" type="FlowContainer" parent="Player Deck"]
+[node name="Player Container" type="FlowContainer" parent="Player Deck"]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 15
@@ -55,8 +55,8 @@ offset_top = 12.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
-script = ExtResource("1_6xaw4")
-pivotScene = ExtResource("2_ro86a")
+script = ExtResource("1_7870i")
+pivotScene = ExtResource("2_ulqh5")
 contentMovementSpeed = 8.0
 
 [node name="Enemy Deck" type="Panel" parent="."]
@@ -64,53 +64,33 @@ custom_minimum_size = Vector2(0, 150)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = 64.0
-offset_bottom = 419.0
+offset_bottom = 449.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lxnw6")
 
-[node name="Container" type="FlowContainer" parent="Enemy Deck"]
+[node name="Enemy Container" type="FlowContainer" parent="Enemy Deck"]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 15.0
+offset_top = 109.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
-script = ExtResource("1_6xaw4")
-pivotScene = ExtResource("2_ro86a")
+script = ExtResource("1_7870i")
+pivotScene = ExtResource("2_ulqh5")
 contentMovementSpeed = 8.0
 
-[node name="Header" type="Panel" parent="."]
+[node name="Header" parent="." instance=ExtResource("3_jvie3")]
 layout_mode = 1
 anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 64.0
-grow_horizontal = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_y6kap")
+anchor_bottom = 0.0
+offset_bottom = 0.0
+grow_vertical = 1
 
-[node name="Coin Icon" type="TextureRect" parent="Header"]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 1
-offset_left = 11.0
-offset_top = 16.0
-offset_right = 83.0
-offset_bottom = 88.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_xs5nw")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Header"]
-layout_mode = 0
-offset_left = 57.0
-offset_top = 25.0
-offset_right = 175.0
-offset_bottom = 48.0
-text = "128"
-fit_content = true
-
-[node name="AddCard" type="TextureButton" parent="." node_paths=PackedStringArray("container")]
+[node name="AddCard" type="TextureButton" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -125,8 +105,25 @@ grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("3_ojahf")
 texture_pressed = ExtResource("4_rmmcj")
-script = ExtResource("5_pq17c")
+script = ExtResource("7_lfisv")
 card = ExtResource("6_evyxh")
-container = NodePath("../Enemy Deck/Container")
+
+[node name="Game Manager" type="Node" parent="."]
+
+[node name="Emoji" type="Node" parent="Game Manager"]
+script = ExtResource("8_dy4c1")
+
+[node name="Match Manager" type="Node" parent="Game Manager" node_paths=PackedStringArray("playerContainer", "enemyContainer")]
+script = ExtResource("9_km56q")
+playerContainer = NodePath("../../Player Deck/Player Container")
+enemyContainer = NodePath("../../Enemy Deck/Enemy Container")
+playerCardInstance = ExtResource("6_evyxh")
+enemyCardInstance = ExtResource("10_kyues")
+maxEnemyCards = 12
+maxPlayerCards = 8
+
+[node name="Timer" type="Timer" parent="Game Manager/Match Manager"]
+wait_time = 3.0
+autostart = true
 
 [connection signal="button_down" from="AddCard" to="AddCard" method="OnButtonDown"]

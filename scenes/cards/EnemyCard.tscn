@@ -1,13 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://rvq2gyehfs2h"]
+[gd_scene load_steps=5 format=3 uid="uid://dxie3tpqsksky"]
 
 [ext_resource type="Texture2D" uid="uid://du4hk6rnydts5" path="res://sprites/interface/card.png" id="1_gmroq"]
+[ext_resource type="Script" path="res://scripts/cards/EnemyCard.cs" id="1_sq8mr"]
 [ext_resource type="Texture2D" uid="uid://wkqx7qttse3l" path="res://sprites/interface/card-pressed.png" id="2_5p8q5"]
-[ext_resource type="Resource" path="res://resources/emojis/bow.tres" id="2_vcg4n"]
-[ext_resource type="Script" path="res://scripts/cards/PlayerCard.cs" id="3_rp24d"]
 
 [sub_resource type="Theme" id="Theme_gdmr5"]
 
-[node name="PlayerCard" type="Control"]
+[node name="EnemyCard" type="Control"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 3
 anchors_preset = 8
@@ -22,8 +21,7 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(50, 50)
-script = ExtResource("3_rp24d")
-emojiResource = ExtResource("2_vcg4n")
+script = ExtResource("1_sq8mr")
 
 [node name="Button" type="TextureButton" parent="."]
 custom_minimum_size = Vector2(100, 100)
