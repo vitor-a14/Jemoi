@@ -1,15 +1,17 @@
 using System.Collections.Generic;
 using Godot;
 
-public struct ContainerContent 
+public class ContainerContent 
 {
 	public Control content;
 	public Control pivot;
+	public bool isActive;
 
-	public ContainerContent(Control content, Control pivot)
+	public ContainerContent(Control content, Control pivot, bool isActive)
 	{
 		this.content = content;
 		this.pivot = pivot;
+		this.isActive = isActive;
 	}
 }
 
@@ -24,8 +26,10 @@ public partial class SmoothContainer : Node
 	{
 		foreach(ContainerContent containerContent in contents) 
 		{
-			float speed = (float)delta * contentMovementSpeed;
-			containerContent.content.Position = containerContent.content.Position.Lerp(containerContent.pivot.GlobalPosition, speed);
+			if(containerContent.isActive) 
+			{
+				containerContent.content.Position = containerContent.content.Position.Lerp(containerContent.pivot.GlobalPosition, (float)delta * contentMovementSpeed);
+			}
 		}
 	}
 
@@ -33,7 +37,7 @@ public partial class SmoothContainer : Node
 	{
 		Control pivotNode = pivotScene.Instantiate() as Control;
 		AddChild(pivotNode);
-		contents.Add(new ContainerContent(content, pivotNode));
+		contents.Add(new ContainerContent(content, pivotNode, true));
 	}
 
 	public void RemoveContent(Control node)
@@ -43,7 +47,6 @@ public partial class SmoothContainer : Node
 			if(containerContent.content == node) 
 			{
 				containerContent.pivot.QueueFree();
-				containerContent.content.QueueFree();
 				contents.Remove(containerContent);
 				break;
 			}

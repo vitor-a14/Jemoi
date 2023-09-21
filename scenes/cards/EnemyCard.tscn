@@ -37,6 +37,7 @@ offset_right = 50.0
 offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(50, 50)
 theme = SubResource("Theme_gdmr5")
 texture_normal = ExtResource("1_gmroq")
 texture_pressed = ExtResource("2_5p8q5")

@@ -25,6 +25,25 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Game Manager" type="Node" parent="."]
+
+[node name="Emoji" type="Node" parent="Game Manager"]
+script = ExtResource("8_dy4c1")
+
+[node name="Match Manager" type="Node" parent="Game Manager" node_paths=PackedStringArray("playerContainer", "enemyContainer")]
+script = ExtResource("9_km56q")
+playerContainer = NodePath("../../Player Deck/Player Container")
+enemyContainer = NodePath("../../Enemy Deck/Enemy Container")
+playerCardInstance = ExtResource("6_evyxh")
+enemyCardInstance = ExtResource("10_kyues")
+maxEnemyCards = 12
+maxPlayerCards = 8
+playerDrawAmount = 2
+
+[node name="Timer" type="Timer" parent="Game Manager/Match Manager"]
+wait_time = 3.0
+autostart = true
+
 [node name="Background Color" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -107,23 +126,5 @@ texture_normal = ExtResource("3_ojahf")
 texture_pressed = ExtResource("4_rmmcj")
 script = ExtResource("7_lfisv")
 card = ExtResource("6_evyxh")
-
-[node name="Game Manager" type="Node" parent="."]
-
-[node name="Emoji" type="Node" parent="Game Manager"]
-script = ExtResource("8_dy4c1")
-
-[node name="Match Manager" type="Node" parent="Game Manager" node_paths=PackedStringArray("playerContainer", "enemyContainer")]
-script = ExtResource("9_km56q")
-playerContainer = NodePath("../../Player Deck/Player Container")
-enemyContainer = NodePath("../../Enemy Deck/Enemy Container")
-playerCardInstance = ExtResource("6_evyxh")
-enemyCardInstance = ExtResource("10_kyues")
-maxEnemyCards = 12
-maxPlayerCards = 8
-
-[node name="Timer" type="Timer" parent="Game Manager/Match Manager"]
-wait_time = 3.0
-autostart = true
 
 [connection signal="button_down" from="AddCard" to="AddCard" method="OnButtonDown"]

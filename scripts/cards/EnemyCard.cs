@@ -9,6 +9,7 @@ public partial class EnemyCard : Card
 	public override void OnButtonDown() 
 	{
 		base.OnButtonDown();
+		MatchManager.Instance.AttackCard(this);
 	}
 
 	public override void OnButtonUp() 
