@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Godot;
 
 public partial class Card : Control
@@ -8,7 +9,8 @@ public partial class Card : Control
 
 	protected void SetCard()
 	{
-		artwork = GetChild(0).GetNode<TextureRect>("Artwork");
+		GetNode<TextureButton>("Button").Modulate = ResourcesManager.Instance.rarityColors[emojiResource.rarity];
+		artwork = GetNode<TextureRect>("Artwork");
 		artwork.Texture = emojiResource.artwork;
 	}
 

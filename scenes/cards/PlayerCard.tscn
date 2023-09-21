@@ -1,11 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://rvq2gyehfs2h"]
+[gd_scene load_steps=5 format=3 uid="uid://rvq2gyehfs2h"]
 
 [ext_resource type="Texture2D" uid="uid://du4hk6rnydts5" path="res://sprites/interface/card.png" id="1_gmroq"]
 [ext_resource type="Texture2D" uid="uid://wkqx7qttse3l" path="res://sprites/interface/card-pressed.png" id="2_5p8q5"]
 [ext_resource type="Resource" path="res://resources/emojis/bow.tres" id="2_vcg4n"]
 [ext_resource type="Script" path="res://scripts/cards/PlayerCard.cs" id="3_rp24d"]
-
-[sub_resource type="Theme" id="Theme_gdmr5"]
 
 [node name="PlayerCard" type="Control"]
 custom_minimum_size = Vector2(100, 100)
@@ -25,6 +23,23 @@ pivot_offset = Vector2(50, 50)
 script = ExtResource("3_rp24d")
 emojiResource = ExtResource("2_vcg4n")
 
+[node name="Artwork" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -26.0
+offset_right = 26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(26, 26)
+expand_mode = 1
+
 [node name="Button" type="TextureButton" parent="."]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
@@ -40,25 +55,8 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(50, 50)
-theme = SubResource("Theme_gdmr5")
 texture_normal = ExtResource("1_gmroq")
 texture_pressed = ExtResource("2_5p8q5")
-
-[node name="Artwork" type="TextureRect" parent="Button"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -26.0
-offset_top = -26.0
-offset_right = 26.0
-offset_bottom = 26.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(26, 26)
-expand_mode = 1
 
 [connection signal="button_down" from="Button" to="." method="OnButtonDown"]
 [connection signal="button_up" from="Button" to="." method="OnButtonUp"]

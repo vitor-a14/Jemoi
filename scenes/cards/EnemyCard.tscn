@@ -23,6 +23,22 @@ grow_vertical = 2
 pivot_offset = Vector2(50, 50)
 script = ExtResource("1_sq8mr")
 
+[node name="Artwork" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -26.0
+offset_right = 26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
 [node name="Button" type="TextureButton" parent="."]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
@@ -41,21 +57,6 @@ pivot_offset = Vector2(50, 50)
 theme = SubResource("Theme_gdmr5")
 texture_normal = ExtResource("1_gmroq")
 texture_pressed = ExtResource("2_5p8q5")
-
-[node name="Artwork" type="TextureRect" parent="Button"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -26.0
-offset_top = -26.0
-offset_right = 26.0
-offset_bottom = 26.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 1
 
 [connection signal="button_down" from="Button" to="." method="OnButtonDown"]
 [connection signal="button_up" from="Button" to="." method="OnButtonUp"]
