@@ -1,4 +1,3 @@
-using System;
 using System.Threading.Tasks;
 using Godot;
 
@@ -22,7 +21,6 @@ public partial class MatchManager : Node
 
 	private Control movingCard;
 	private Control targetCard;
-	private float cardMovementTimer = 0f;
 	private bool movingCards = false;
 
 	public override void _Ready()
@@ -30,7 +28,7 @@ public partial class MatchManager : Node
 		if (Instance == null)
 			Instance = this;
 		else
-			GD.PrintErr("Instance of EmojiManager is already running");
+			GD.PrintErr("Instance of MatchManager is already running");
 
 		timer = GetNode<Timer>("Timer");
 		timer.Timeout += () => TurnEnd();
@@ -44,6 +42,13 @@ public partial class MatchManager : Node
 
 		AddCard(playerCardInstance, 3, playerContainer, new Vector2(0, 0));
 		AddCard(enemyCardInstance, 3, enemyContainer, new Vector2(0, 0));
+	}
+	
+	public override void _PhysicsProcess(double delta) 
+	{
+		//These are AttackCard's code, they are running here because the _PhysicsProcess runs 60 frames per second
+		//All animations logic should go here
+		if(movingCards) movingCard.Position = movingCard.Position.Lerp(targetCard.GlobalPosition, playerContainer.contentMovementSpeed * (float) delta);
 	}
 
 	public void SelectPlayerCard(PlayerCard playerCard) 
@@ -67,16 +72,18 @@ public partial class MatchManager : Node
 
 	private void RemoveCard(Control card, SmoothContainer container)
 	{
+		if(card == selectedPlayerCard)
+			selectedPlayerCard = null;
+
 		container.RemoveContent(card);
+		card.QueueFree();
 	}
 
-	public void AttackCard(EnemyCard enemyTargetCard)
+	public async void AttackCard(EnemyCard enemyTargetCard)
 	{
 		if(selectedPlayerCard == null || movingCards) return;
 
 		var emojiResourceName = selectedPlayerCard.emojiResource.name;
-		cardMovementTimer = 0f;
-		movingCards = true;
 
 		if(enemyTargetCard.emojiResource.weaknesses.Contains(emojiResourceName) 
 		|| (enemyTargetCard.emojiResource.name == emojiResourceName && randomIndex.RandiRange(0, 1) == 0))
@@ -93,45 +100,32 @@ public partial class MatchManager : Node
 		}
 
 		movingCard.ZIndex = 5;
-	}
+		movingCards = true;
 
-	public override void _PhysicsProcess(double delta) 
-	{
-		if(movingCard != null && targetCard != null)
+		//await movement animation to complete the code execution | works on mobile?
+		await Task.Delay(650); 
+
+		RemoveCard(selectedPlayerCard, playerContainer);
+		movingCards = false;
+
+		if(movingCard.GetType() == typeof(EnemyCard))
 		{
-			if(cardMovementTimer < 0.65f)
-			{
-				cardMovementTimer += (float) delta;
-				movingCard.Position = movingCard.Position.Lerp(targetCard.GlobalPosition, playerContainer.contentMovementSpeed * (float) delta);
-			}
-			else
-			{
-				playerContainer.RemoveContent(selectedPlayerCard);
-				selectedPlayerCard.QueueFree();
-				selectedPlayerCard = null;
-				movingCards = false;
+			enemyContainer.AddContent(movingCard);
+			movingCard.ZIndex = 0;
+			targetCard = null;
+		}
+		else
+		{
+			if(playerContainer.contents.Count < maxPlayerCards - 1)
+				AddCard(playerCardInstance, playerDrawAmount, playerContainer, targetCard.GlobalPosition);
+			else 
+				AddCard(playerCardInstance, 1, playerContainer, targetCard.GlobalPosition);
 
-				if(movingCard.GetType() == typeof(EnemyCard))
-				{
-					enemyContainer.AddContent(movingCard);
-					movingCard.ZIndex = 0;
-					targetCard = null;
-				}
-				else
-				{
-					if(playerContainer.contents.Count < maxPlayerCards - 1)
-						AddCard(playerCardInstance, playerDrawAmount, playerContainer, targetCard.GlobalPosition);
-					else 
-						AddCard(playerCardInstance, 1, playerContainer, targetCard.GlobalPosition);
-
-					enemyContainer.RemoveContent(targetCard);
-					targetCard.QueueFree();
-					targetCard = null;
-				}
-			}
+			RemoveCard(targetCard, enemyContainer);
+			ResourcesManager.Instance.AddCoins(3);
 		}
 	}
-
+	
 	private void TurnEnd()
 	{
 		if(enemyContainer.contents.Count < maxEnemyCards && !movingCards) 
