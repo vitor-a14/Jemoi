@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Emoji" load_steps=3 format=3 uid="uid://cbjsijv6l86m2"]
+[gd_resource type="Resource" script_class="Emoji" load_steps=3 format=3 uid="uid://by6pxmi4tuidy"]
 
 [ext_resource type="Texture2D" uid="uid://6600h6s3ak3h" path="res://sprites/emojis/1f3ce.png" id="1_1veor"]
 [ext_resource type="Script" path="res://scripts/Emoji.cs" id="1_76i21"]
@@ -8,5 +8,6 @@ script = ExtResource("1_76i21")
 id = 2
 name = "car"
 price = 0
+rarity = 0
 artwork = ExtResource("1_1veor")
 weaknesses = "house explosion mage vampire world sun star hurricane ghost moon demon skull fire dinosaur saturn time radiation"

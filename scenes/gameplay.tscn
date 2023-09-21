@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dxie3tpqsksky" path="res://scenes/cards/EnemyCard.tscn" id="10_kyues"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_is505"]
-bg_color = Color(0.117647, 0.666667, 0.792157, 1)
+bg_color = Color(0.712129, 0.712129, 0.712129, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxnw6"]
 bg_color = Color(0.85098, 0.85098, 0.85098, 1)

@@ -12,10 +12,10 @@ public partial class ResourcesManager : Node
 	
 	public Dictionary<Rarity, Color> rarityColors = new Dictionary<Rarity, Color>
 	{
-		{ Rarity.NORMAL, new Color(0, 0.5f, 0.5f, 1) },
-		{ Rarity.UNCOMMON, new Color(0, 0, 0, 1) },
-		{ Rarity.RARE, new Color(0, 0, 0, 1) },
-		{ Rarity.EPIC, new Color(0, 0, 0, 1) }
+		{ Rarity.NORMAL, new Color(1f, 1f, 1f, 1f) },
+		{ Rarity.UNCOMMON, new Color(0.12f, 0.66f, 1f, 1f) },
+		{ Rarity.RARE, new Color(1f, 0.70f, 0f, 1f) },
+		{ Rarity.EPIC, new Color(0.5f, 0f, 1f, 1f) }
 	};
 
 	private float targetY;
