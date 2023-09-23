@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Emoji" load_steps=3 format=3 uid="uid://dxj6o30vl75i"]
+
+[ext_resource type="Script" path="res://scripts/Emoji.cs" id="1_4vh1o"]
+[ext_resource type="Texture2D" uid="uid://d2twyoou1ij00" path="res://sprites/emojis/cat.png" id="1_5meid"]
+
+[resource]
+script = ExtResource("1_4vh1o")
+id = 30
+name = "cat"
+price = 0
+rarity = 0
+artwork = ExtResource("1_5meid")
+weaknesses = "motorcycle car bow explosion sword man bacteria mage vampire zombie world sun star hurricane horse diamond moon dog demon skull fire evil angry ninja dinossaur saturn axe time radiation cold"

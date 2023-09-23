@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Emoji" load_steps=3 format=3 uid="uid://c0r2kpvc5ymuw"]
+
+[ext_resource type="Texture2D" uid="uid://bgrh3t14tp3wu" path="res://sprites/emojis/zombie.png" id="1_5g66c"]
+[ext_resource type="Script" path="res://scripts/Emoji.cs" id="1_ppyq8"]
+
+[resource]
+script = ExtResource("1_ppyq8")
+id = 16
+name = "zombie"
+price = 0
+rarity = 0
+artwork = ExtResource("1_5g66c")
+weaknesses = "motorcycle car bow explosion sword mage vampire soap world sun star hurricane ghost moon demon fire evil angry ninja dinossaur saturn axe time"

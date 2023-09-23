@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Emoji" load_steps=3 format=3 uid="uid://bq04gnlaa5diy"]
+
+[ext_resource type="Texture2D" uid="uid://bcirbqql05qom" path="res://sprites/emojis/bacteria.png" id="1_8jey1"]
+[ext_resource type="Script" path="res://scripts/Emoji.cs" id="1_vpxjv"]
+
+[resource]
+script = ExtResource("1_vpxjv")
+id = 12
+name = "bacteria"
+price = 0
+rarity = 0
+artwork = ExtResource("1_8jey1")
+weaknesses = "explosionmagevampirezombiesoapworldsunstarhurricaneghostdiamondmooncrowndemonskullfirespidersaturnaxetimeradiationcold"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Emoji" load_steps=3 format=3 uid="uid://rhkmpyqcogsd"]
+
+[ext_resource type="Script" path="res://scripts/Emoji.cs" id="1_epfen"]
+[ext_resource type="Texture2D" uid="uid://epbvi8d4swfq" path="res://sprites/emojis/goose.png" id="1_qwwe7"]
+
+[resource]
+script = ExtResource("1_epfen")
+id = 13
+name = "goose"
+price = 0
+rarity = 0
+artwork = ExtResource("1_qwwe7")
+weaknesses = "motorcycle car house bow explosion sword man bacteria mage vampire zombie world sun star hurricane snake horse ghost diamond moon cat chicken dog demon skull fire evil angry ninja dinossaur saturn axe time radiation cold"

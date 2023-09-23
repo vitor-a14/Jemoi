@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Emoji" load_steps=3 format=3 uid="uid://cnqbsptysx13"]
+
+[ext_resource type="Texture2D" uid="uid://c17u7qeteq6m0" path="res://sprites/emojis/explosion.png" id="1_is25m"]
+[ext_resource type="Script" path="res://scripts/Emoji.cs" id="1_k8m6v"]
+
+[resource]
+script = ExtResource("1_k8m6v")
+id = 5
+name = "explosion"
+price = 0
+rarity = 0
+artwork = ExtResource("1_is25m")
+weaknesses = "shield mage world sun star hurricane ghost diamond moon cat skull angry ninja dinossaur saturn time radiation"

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Emoji" load_steps=3 format=3 uid="uid://ceb3ix08yf61"]
 
-[ext_resource type="Texture2D" uid="uid://dbo0qmh0bod7x" path="res://sprites/emojis/1f3f9.png" id="1_1g000"]
+[ext_resource type="Texture2D" uid="uid://dbo0qmh0bod7x" path="res://sprites/emojis/bow.png" id="1_1g000"]
 [ext_resource type="Script" path="res://scripts/Emoji.cs" id="1_lapt3"]
 
 [resource]

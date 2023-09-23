@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Emoji" load_steps=3 format=3 uid="uid://d1g47sujlndnf"]
+
+[ext_resource type="Texture2D" uid="uid://6jp6rw41jojl" path="res://sprites/emojis/skull.png" id="1_16yoe"]
+[ext_resource type="Script" path="res://scripts/Emoji.cs" id="1_nr052"]
+
+[resource]
+script = ExtResource("1_nr052")
+id = 35
+name = "skull"
+price = 0
+rarity = 0
+artwork = ExtResource("1_16yoe")
+weaknesses = "magevampireworldsunstarmoon saturntime"

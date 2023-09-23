@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Emoji" load_steps=3 format=3 uid="uid://d0447eovnhuru"]
+
+[ext_resource type="Script" path="res://scripts/Emoji.cs" id="1_1ej5p"]
+[ext_resource type="Texture2D" uid="uid://xdrhy4xgatet" path="res://sprites/emojis/ghost.png" id="1_tgwm1"]
+
+[resource]
+script = ExtResource("1_1ej5p")
+id = 27
+name = "ghost"
+price = 0
+rarity = 0
+artwork = ExtResource("1_tgwm1")
+weaknesses = "emotions mage world sun star demon saturn time love"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Emoji" load_steps=3 format=3 uid="uid://clu5vdpe1yuyx"]
+
+[ext_resource type="Texture2D" uid="uid://dbabg112kbf14" path="res://sprites/emojis/world.png" id="1_17mbv"]
+[ext_resource type="Script" path="res://scripts/Emoji.cs" id="1_a2t80"]
+
+[resource]
+script = ExtResource("1_a2t80")
+id = 18
+name = "world"
+price = 0
+rarity = 0
+artwork = ExtResource("1_17mbv")
+weaknesses = "sun star saturn time"

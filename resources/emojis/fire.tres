@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Emoji" load_steps=3 format=3 uid="uid://bv0b1p15b6xfb"]
+
+[ext_resource type="Texture2D" uid="uid://evoakxuwshkq" path="res://sprites/emojis/fire.png" id="1_oefkm"]
+[ext_resource type="Script" path="res://scripts/Emoji.cs" id="1_whdfg"]
+
+[resource]
+script = ExtResource("1_whdfg")
+id = 36
+name = "fire"
+price = 0
+rarity = 0
+artwork = ExtResource("1_oefkm")
+weaknesses = "shield mage world sun star hurricane ladybird diamond moon demon saturn time cold"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Emoji" load_steps=3 format=3 uid="uid://dokeu5abuo0cn"]
+
+[ext_resource type="Texture2D" uid="uid://0pa3bins7hb6" path="res://sprites/emojis/vampire.png" id="1_nm3f2"]
+[ext_resource type="Script" path="res://scripts/Emoji.cs" id="1_t1bje"]
+
+[resource]
+script = ExtResource("1_t1bje")
+id = 15
+name = "vampire"
+price = 0
+rarity = 0
+artwork = ExtResource("1_nm3f2")
+weaknesses = "explosion money mage world sun star hurricane ghost moon demon fire shame ninja dinossaur saturn time love"

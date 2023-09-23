@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Emoji" load_steps=3 format=3 uid="uid://carhoum1iy34k"]
+
+[ext_resource type="Script" path="res://scripts/Emoji.cs" id="1_852y4"]
+[ext_resource type="Texture2D" uid="uid://bcr3s5ay4fvgn" path="res://sprites/emojis/demon.png" id="1_ptjxb"]
+
+[resource]
+script = ExtResource("1_852y4")
+id = 34
+name = "demon"
+price = 0
+rarity = 0
+artwork = ExtResource("1_ptjxb")
+weaknesses = "emotions bow explosion sword mage vampire world sun star hurricane moon ninja saturn time love"

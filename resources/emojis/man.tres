@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Emoji" load_steps=3 format=3 uid="uid://bxjjkcu3ux6o2"]
+
+[ext_resource type="Script" path="res://scripts/Emoji.cs" id="1_u6q4l"]
+[ext_resource type="Texture2D" uid="uid://cypmq04tllc7t" path="res://sprites/emojis/man.png" id="1_vnd45"]
+
+[resource]
+script = ExtResource("1_u6q4l")
+id = 10
+name = "man"
+price = 0
+rarity = 0
+artwork = ExtResource("1_vnd45")
+weaknesses = "emotions motorcycle car bow explosion money sword bacteria mage vampire zombie world sun star hurricane snake ghost moon demon skull fire spider ninja skorpion dinossaur saturn axe time radiation"
