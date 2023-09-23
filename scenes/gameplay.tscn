@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://csit3tjysmbcc"]
+[gd_scene load_steps=14 format=3 uid="uid://csit3tjysmbcc"]
 
 [ext_resource type="Script" path="res://scripts/interface/SmoothContainer.cs" id="1_7870i"]
 [ext_resource type="PackedScene" uid="uid://cqcwy2fmy8uil" path="res://scenes/interface/ContainerPivot.tscn" id="2_ulqh5"]
-[ext_resource type="PackedScene" uid="uid://dl3pwtr637yd2" path="res://scenes/interface/Header.tscn" id="3_jvie3"]
+[ext_resource type="PackedScene" uid="uid://c2mhwboaf3ye6" path="res://scenes/interface/Header.tscn" id="3_jvie3"]
 [ext_resource type="Texture2D" uid="uid://du4hk6rnydts5" path="res://sprites/interface/card.png" id="3_ojahf"]
 [ext_resource type="Texture2D" uid="uid://wkqx7qttse3l" path="res://sprites/interface/card-pressed.png" id="4_rmmcj"]
+[ext_resource type="Script" path="res://scripts/interface/ResourcesManager.cs" id="5_2jd7a"]
 [ext_resource type="PackedScene" uid="uid://rvq2gyehfs2h" path="res://scenes/cards/PlayerCard.tscn" id="6_evyxh"]
 [ext_resource type="Script" path="res://scripts/interface/DebugButton.cs" id="7_lfisv"]
 [ext_resource type="Script" path="res://scripts/game/EmojiManager.cs" id="8_dy4c1"]
@@ -43,6 +44,9 @@ playerDrawAmount = 2
 [node name="Timer" type="Timer" parent="Game Manager/Match Manager"]
 wait_time = 3.0
 autostart = true
+
+[node name="Resource Manager" type="Node" parent="Game Manager"]
+script = ExtResource("5_2jd7a")
 
 [node name="Background Color" type="Panel" parent="."]
 layout_mode = 1

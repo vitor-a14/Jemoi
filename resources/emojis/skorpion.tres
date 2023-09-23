@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Emoji" load_steps=3 format=3 uid="uid://0uxnsg8mo625"]
+
+[ext_resource type="Texture2D" uid="uid://1yiol1isj58" path="res://sprites/emojis/skorpion.png" id="1_25hl6"]
+[ext_resource type="Script" path="res://scripts/Emoji.cs" id="1_kx7a6"]
+
+[resource]
+script = ExtResource("1_kx7a6")
+id = 42
+name = "skorpion"
+price = 0
+rarity = 0
+artwork = ExtResource("1_25hl6")
+weaknesses = "motorcycle car explosion sword bicycle man shield bacteria goose mage vampire zombie world sun star hurricane snake horse diamond moon cat chicken dog demon skull fire spider evil angry ninja dinossaur saturn axe time radiation"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Emoji" load_steps=3 format=3 uid="uid://dbnxdiu8xji5x"]
+
+[ext_resource type="Script" path="res://scripts/Emoji.cs" id="1_c1nhe"]
+[ext_resource type="Texture2D" uid="uid://rplmivlm1p3d" path="res://sprites/emojis/angry.png" id="1_v5k2u"]
+
+[resource]
+script = ExtResource("1_c1nhe")
+id = 39
+name = "angry"
+price = 0
+rarity = 0
+artwork = ExtResource("1_v5k2u")
+weaknesses = "emotions bow explosion sword man bacteria mage vampire zombie world sun star hurricane snake ghost diamond moon demon skull fire ninja dinossaur saturn time radiation love"

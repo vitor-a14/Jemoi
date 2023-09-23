@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Emoji" load_steps=3 format=3 uid="uid://c0d4vgg41ox2t"]
+
+[ext_resource type="Script" path="res://scripts/Emoji.cs" id="1_k0n1k"]
+[ext_resource type="Texture2D" uid="uid://bmpcu0cf2ghqr" path="res://sprites/emojis/radiation.png" id="1_mgw3n"]
+
+[resource]
+script = ExtResource("1_k0n1k")
+id = 47
+name = "radiation"
+price = 0
+rarity = 0
+artwork = ExtResource("1_mgw3n")
+weaknesses = "zombie world sun star worm diamond moon saturn time"

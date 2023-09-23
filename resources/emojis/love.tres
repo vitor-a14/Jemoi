@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Emoji" load_steps=3 format=3 uid="uid://b0rsctaeswakp"]
+
+[ext_resource type="Script" path="res://scripts/Emoji.cs" id="1_neqd8"]
+[ext_resource type="Texture2D" uid="uid://cmnb0vanstdbk" path="res://sprites/emojis/love.png" id="1_y2104"]
+
+[resource]
+script = ExtResource("1_neqd8")
+id = 48
+name = "love"
+price = 0
+rarity = 0
+artwork = ExtResource("1_y2104")
+weaknesses = "emotions bow explosion money sword shield bacteria vampire zombie world sun star hurricane moon fire spider evil angry shame ninja skorpion dinossaur saturn axe time cold"

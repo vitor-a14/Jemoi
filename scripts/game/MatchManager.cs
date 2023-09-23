@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using Godot;
 
 public partial class MatchManager : Node
@@ -38,7 +37,7 @@ public partial class MatchManager : Node
 	
 	private async void DelayedReady()
 	{
-		await ToSignal(GetTree().CreateTimer(0.1), "timeout");
+		await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 
 		AddCard(playerCardInstance, 3, playerContainer, new Vector2(0, 0));
 		AddCard(enemyCardInstance, 3, enemyContainer, new Vector2(0, 0));
@@ -103,7 +102,7 @@ public partial class MatchManager : Node
 		movingCards = true;
 
 		//await movement animation to complete the code execution | works on mobile?
-		await Task.Delay(650); 
+		await ToSignal(GetTree().CreateTimer(0.65f), "timeout");
 
 		RemoveCard(selectedPlayerCard, playerContainer);
 		movingCards = false;

@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dl3pwtr637yd2"]
+[gd_scene load_steps=5 format=3 uid="uid://c2mhwboaf3ye6"]
 
-[ext_resource type="Script" path="res://scripts/interface/ResourcesManager.cs" id="1_3mr0p"]
 [ext_resource type="Texture2D" uid="uid://buosysk00vc5b" path="res://sprites/interface/coin.png" id="1_7v0u2"]
+[ext_resource type="Script" path="res://scripts/interface/CoinHeader.cs" id="1_wglba"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_we78e"]
 bg_color = Color(1, 1, 1, 1)
@@ -18,7 +18,7 @@ anchor_bottom = 1.0
 offset_bottom = -750.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_3mr0p")
+script = ExtResource("1_wglba")
 coinText = NodePath("Panel/Coin Text")
 
 [node name="Panel" type="Panel" parent="."]

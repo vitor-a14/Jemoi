@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://du4hk6rnydts5" path="res://sprites/interface/card.png" id="1_gmroq"]
 [ext_resource type="Texture2D" uid="uid://wkqx7qttse3l" path="res://sprites/interface/card-pressed.png" id="2_5p8q5"]
-[ext_resource type="Resource" path="res://resources/emojis/bow.tres" id="2_vcg4n"]
+[ext_resource type="Resource" uid="uid://ceb3ix08yf61" path="res://resources/emojis/bow.tres" id="2_vcg4n"]
 [ext_resource type="Script" path="res://scripts/cards/PlayerCard.cs" id="3_rp24d"]
 
 [node name="PlayerCard" type="Control"]

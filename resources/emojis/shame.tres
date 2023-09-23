@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Emoji" load_steps=3 format=3 uid="uid://cjpnqct7oairm"]
+
+[ext_resource type="Texture2D" uid="uid://qm0wpuoxq671" path="res://sprites/emojis/shame.png" id="1_m6l74"]
+[ext_resource type="Script" path="res://scripts/Emoji.cs" id="1_mvvot"]
+
+[resource]
+script = ExtResource("1_mvvot")
+id = 40
+name = "shame"
+price = 0
+rarity = 0
+artwork = ExtResource("1_m6l74")
+weaknesses = "emotions house explosion money sword man bacteria goose mage vampire zombie world sun star hurricane snake horse bee ghost diamond moon crown demon skull fire spider evil angry ninja skorpion dinossaur saturn axe time radiation love"

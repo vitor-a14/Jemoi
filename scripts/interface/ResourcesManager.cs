@@ -1,12 +1,9 @@
-using System.Threading.Tasks;
 using Godot;
 using Godot.Collections;
 
 public partial class ResourcesManager : Node
 {
 	public static ResourcesManager Instance { get; private set; }
-
-	[Export] public Label coinText;
 
 	public int currentCoins;
 	
@@ -18,10 +15,6 @@ public partial class ResourcesManager : Node
 		{ Rarity.EPIC, new Color(0.5f, 0f, 1f, 1f) }
 	};
 
-	private float targetY;
-	private float defaultTargetY;
-	private float movementY;
-
 	public override void _Ready()
 	{
 		if (Instance == null)
@@ -29,10 +22,14 @@ public partial class ResourcesManager : Node
 		else
 			GD.PrintErr("Instance of ResourcesManager is already running");
 
-		SetCoins(0);
+		DelayedReady();
+	}
 
-		defaultTargetY = coinText.GlobalPosition.Y;
-		targetY = defaultTargetY;
+	private async void DelayedReady()
+	{
+		await ToSignal(GetTree().CreateTimer(0.1), "timeout");
+
+		SetCoins(0);
 	}
 
 	public void AddCoins(int value)
@@ -40,8 +37,7 @@ public partial class ResourcesManager : Node
 		currentCoins += value;
 		currentCoins = Mathf.Clamp(currentCoins, 0, 99999);
 
-		coinText.Text = currentCoins.ToString();
-		TriggerAnimation();
+		if(CoinHeader.Instance != null) CoinHeader.Instance.ChangeCoinValue(currentCoins);
 	}
 
 	public void SetCoins(int value)
@@ -49,21 +45,6 @@ public partial class ResourcesManager : Node
 		currentCoins = value;
 		currentCoins = Mathf.Clamp(currentCoins, 0, 99999);
 
-		coinText.Text = currentCoins.ToString();
-		TriggerAnimation();
+		if(CoinHeader.Instance != null) CoinHeader.Instance.ChangeCoinValue(currentCoins);
 	}
-
-	private async void TriggerAnimation()
-	{
-		targetY = -25;
-		await Task.Delay(20);
-		targetY = defaultTargetY;
-	}
-
-	public override void _PhysicsProcess(double delta) 
-	{
-		movementY = Mathf.Lerp(movementY, targetY, 10f * (float)delta);
-		coinText.Position = new Vector2(coinText.Position.X, movementY);
-	}
-
 }

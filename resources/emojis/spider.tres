@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Emoji" load_steps=3 format=3 uid="uid://b6qsey3u17e5"]
+
+[ext_resource type="Texture2D" uid="uid://d0druj5ieb8o4" path="res://sprites/emojis/spider.png" id="1_557g3"]
+[ext_resource type="Script" path="res://scripts/Emoji.cs" id="1_hhjwu"]
+
+[resource]
+script = ExtResource("1_hhjwu")
+id = 37
+name = "spider"
+price = 0
+rarity = 0
+artwork = ExtResource("1_557g3")
+weaknesses = "motorcycle car bow explosion sword man shield bacteria goose mage vampire zombie world sun star hurricane snake horse ghost diamond moon cat dog demon skull fire evil angry shame ninja dinossaur saturn axe time radiation"

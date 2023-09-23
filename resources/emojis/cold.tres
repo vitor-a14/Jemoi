@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Emoji" load_steps=3 format=3 uid="uid://c7dxfcn7ceqt7"]
+
+[ext_resource type="Script" path="res://scripts/Emoji.cs" id="1_0casl"]
+[ext_resource type="Texture2D" uid="uid://cvqhyd54wb3l4" path="res://sprites/emojis/cold.png" id="1_kghfc"]
+
+[resource]
+script = ExtResource("1_0casl")
+id = 49
+name = "cold"
+price = 0
+rarity = 0
+artwork = ExtResource("1_kghfc")
+weaknesses = "house explosion zombie world sun star hurricane worm ghost diamond moon demon fire angry saturn time love"
