@@ -1,5 +1,7 @@
 using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameplayManager : MonoBehaviour
 {
@@ -14,10 +16,17 @@ public class GameplayManager : MonoBehaviour
     public float enemyCardSpawnDelay;
     public GameObject enemyCardInstance, playerCardInstance;
     public Transform screen, enemyContainer, playerContainer;
+
+    public GameObject gameOverScreen;
+    public TMP_Text gameOverScore, gameOverCoins;
  
     private bool inAnimation = false;
     private Transform attacker, target;
     private float enemyCardSpawnTimer = 0f;
+
+    private int currentCoins = 0;
+    private int currentScore = 0;
+    private bool gameOver = false;
 
     void Awake()
     {
@@ -32,11 +41,12 @@ public class GameplayManager : MonoBehaviour
         }
 
         screen = GameObject.FindGameObjectWithTag("Screen").transform;
+        CoinText.Instance.coinText.text = currentCoins.ToString();
     }
 
     public void SelectPlayerCard(PlayerCard playerCard)
     {
-        if(inAnimation) return;
+        if(inAnimation || gameOver) return;
 
         if (selectedPlayerCard != null)
             selectedPlayerCard.transform.localScale = new Vector3(1, 1, 1);
@@ -48,7 +58,7 @@ public class GameplayManager : MonoBehaviour
 
     public async void AttackEnemyCard(EnemyCard enemyCard)
     {
-        if (selectedPlayerCard == null || inAnimation) return;
+        if (selectedPlayerCard == null || inAnimation || gameOver) return;
 
         inAnimation = true;
         bool playerWon = CardManager.Instance.CheckWeakness(selectedPlayerCard, enemyCard);
@@ -63,7 +73,9 @@ public class GameplayManager : MonoBehaviour
         if(playerWon)
         {
             AddPlayerCard(2);
-            ResourceManager.Instance.AddCoins(coinsPerWin);
+            currentCoins += coinsPerWin;
+            currentScore += 1;
+            CoinText.Instance.coinText.text = currentCoins.ToString();
             Destroy(enemyCard.gameObject);
         } 
         else 
@@ -76,6 +88,13 @@ public class GameplayManager : MonoBehaviour
 
     private void Update()
     {
+        if(gameOver) return;
+
+        if(playerContainer.childCount <= 0 && selectedPlayerCard == null) 
+        {
+            GameOver();
+        }
+
         if(inAnimation)
         {
             attacker.position = Vector3.Lerp(attacker.position, target.position, 8 * Time.deltaTime);
@@ -86,7 +105,7 @@ public class GameplayManager : MonoBehaviour
         {
             AddEnemyCard();
             enemyCardSpawnTimer = 0f;
-        }
+        } 
     }
 
     private void AddPlayerCard(int quantity)
@@ -101,7 +120,34 @@ public class GameplayManager : MonoBehaviour
 
     private void AddEnemyCard()
     {
-        if(enemyContainer.childCount >= maxEnemyCards) return;
+        if(enemyContainer.childCount >= maxEnemyCards) 
+        {
+            GameOver();
+            return;
+        }
+
         Instantiate(enemyCardInstance, enemyContainer);
+    }
+
+    public void RetryButton()
+    {
+        ResourceManager.Instance.AddCoins(currentCoins);
+        ResourceManager.Instance.Save();
+        SceneManager.LoadScene("Gameplay");
+    }
+
+    public void MenuButton()
+    {
+        ResourceManager.Instance.AddCoins(currentCoins);
+        ResourceManager.Instance.Save();
+        SceneManager.LoadScene("Main Menu");
+    }
+
+    private void GameOver()
+    {
+        gameOver = true;
+        gameOverScreen.SetActive(true);
+        gameOverScore.text = currentScore.ToString();
+        gameOverCoins.text = currentCoins.ToString();
     }
 }

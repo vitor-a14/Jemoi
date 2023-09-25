@@ -5,8 +5,9 @@ public class CardManager : MonoBehaviour
 {
     public static CardManager Instance;    
     public Dictionary<int, CardObject> cards = new Dictionary<int, CardObject>();
+    private List<CardObject> playerCards = new List<CardObject>();
 
-    void Awake()
+    void Start()
     {
         if (Instance == null) 
         {
@@ -22,6 +23,9 @@ public class CardManager : MonoBehaviour
         foreach (CardObject card in loadedCards) 
         {
             cards[card.id] = card;
+
+            if(ResourceManager.Instance.playerEarnedCards.Contains(card.id))
+                playerCards.Add(card);
         }
     }
 
@@ -50,7 +54,7 @@ public class CardManager : MonoBehaviour
 
     public CardObject GetPlayerCard() 
     {
-        return cards[Random.Range(0, cards.Count)];
+        return playerCards[Random.Range(0, playerCards.Count)];
     }
 
     public CardObject GetEnemyCard()
