@@ -38,12 +38,10 @@ public class ShopManager : MonoBehaviour
             return;
         }
 
-        for(int i = 0; i < CardManager.Instance.cards.Count; i++)
+        foreach(CardObject sortedCard in CardManager.Instance.sortedLoadedCards)
         {
-            CardObject card = CardManager.Instance.cards[i];
             ShopCard shopCard = Instantiate(shopCardInstance, shopCardContainer).GetComponent<ShopCard>();
-
-            shopCard.SetCard(card);
+            shopCard.SetCard(sortedCard);
         }
     }
 

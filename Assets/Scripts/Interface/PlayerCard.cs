@@ -2,7 +2,7 @@ public class PlayerCard : Card
 {
     void Start()
     {
-        SetCard(CardManager.Instance.GetEnemyCard());
+        SetCard(CardManager.Instance.GetPlayerCard());
     }
 
     protected override void OnButtonDown()

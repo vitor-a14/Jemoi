@@ -41,7 +41,8 @@ public class GameplayManager : MonoBehaviour
         }
 
         screen = GameObject.FindGameObjectWithTag("Screen").transform;
-        CoinText.Instance.coinText.text = currentCoins.ToString();
+        CoinText.Instance.UpdateCoinText(currentCoins);
+        CoinText.Instance.UpdateScoreText(currentScore);
     }
 
     public void SelectPlayerCard(PlayerCard playerCard)
@@ -75,7 +76,8 @@ public class GameplayManager : MonoBehaviour
             AddPlayerCard(2);
             currentCoins += coinsPerWin;
             currentScore += 1;
-            CoinText.Instance.coinText.text = currentCoins.ToString();
+            CoinText.Instance.UpdateCoinText(currentCoins);
+            CoinText.Instance.UpdateScoreText(currentScore);
             Destroy(enemyCard.gameObject);
         } 
         else 
@@ -132,6 +134,7 @@ public class GameplayManager : MonoBehaviour
     public void RetryButton()
     {
         ResourceManager.Instance.AddCoins(currentCoins);
+        ResourceManager.Instance.SetMaxScore(currentScore);
         ResourceManager.Instance.Save();
         SceneManager.LoadScene("Gameplay");
     }
@@ -139,6 +142,7 @@ public class GameplayManager : MonoBehaviour
     public void MenuButton()
     {
         ResourceManager.Instance.AddCoins(currentCoins);
+        ResourceManager.Instance.SetMaxScore(currentScore);
         ResourceManager.Instance.Save();
         SceneManager.LoadScene("Main Menu");
     }

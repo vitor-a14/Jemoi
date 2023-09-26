@@ -1,10 +1,22 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+
+[System.Serializable]
+public struct RarityColor
+{
+    public Rarity rarity;
+    public Color color;
+}
 
 public class CardManager : MonoBehaviour
 {
     public static CardManager Instance;    
+
     public Dictionary<int, CardObject> cards = new Dictionary<int, CardObject>();
+    public List<RarityColor> rarityColors = new List<RarityColor>();
+    [HideInInspector] public List<CardObject> sortedLoadedCards = new List<CardObject>();
+
     private List<CardObject> playerCards = new List<CardObject>();
 
     void Start()
@@ -19,8 +31,9 @@ public class CardManager : MonoBehaviour
             return;
         }
 
-        CardObject[] loadedCards = Resources.LoadAll<CardObject>("Cards");
-        foreach (CardObject card in loadedCards) 
+        sortedLoadedCards = Resources.LoadAll<CardObject>("Cards").OrderBy(card => card.price).ToList();
+
+        foreach (CardObject card in sortedLoadedCards) 
         {
             cards[card.id] = card;
 

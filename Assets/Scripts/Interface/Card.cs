@@ -11,13 +11,19 @@ public class Card : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         this.cardObject = cardObject;
         artwork.sprite = cardObject.artwork;
+
+        foreach(RarityColor colors in CardManager.Instance.rarityColors)
+        {
+            if(colors.rarity == cardObject.rarity)
+                GetComponent<Image>().color = colors.color;
+        }
     }
 
     void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
     {
         for(int i = 0; i < transform.childCount; i++)
         {
-            transform.GetChild(i).position -= new Vector3(0, 3, 0);
+            transform.GetChild(i).position -= new Vector3(0, 1.8f, 0);
         }
 
         OnButtonDown();
@@ -27,7 +33,7 @@ public class Card : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         for(int i = 0; i < transform.childCount; i++)
         {
-            transform.GetChild(i).position += new Vector3(0, 3, 0);
+            transform.GetChild(i).position += new Vector3(0, 1.8f, 0);
         }
 
         OnButtonUp();
