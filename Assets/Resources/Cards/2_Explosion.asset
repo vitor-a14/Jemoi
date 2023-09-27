@@ -17,5 +17,4 @@ MonoBehaviour:
   price: 450
   rarity: 1
   artwork: {fileID: 21300000, guid: 45588a17b71024847b24649734e57806, type: 3}
-  weakAgainst: 'shield mage world sun star hurricane ghost diamond moon cat skull 
-    angry ninja dinossaur saturn time radiation '
+  weakAgainst: shield mage world sun star hurricane ghost diamond moon cat skull

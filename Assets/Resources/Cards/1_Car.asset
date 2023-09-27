@@ -17,5 +17,6 @@ MonoBehaviour:
   price: 200
   rarity: 0
   artwork: {fileID: 21300000, guid: 4858ceea8572e5049a15563fb1f14530, type: 3}
-  weakAgainst: 'house explosion mage vampire world sun star hurricane ghost moon
-    demon skull fire dinossaur saturn time radiation '
+  weakAgainst: house explosion mage vampire world sun star hurricane ghost moon demon
+    skull fire dinossaur saturn time radiation bandit tiger police vulcan fairy hero
+    alien

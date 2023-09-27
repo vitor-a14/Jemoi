@@ -17,4 +17,5 @@ MonoBehaviour:
   price: 700
   rarity: 2
   artwork: {fileID: 21300000, guid: 5c512753b8a69ee448f5c73c941f56b0, type: 3}
-  weakAgainst: 'emotions mage world sun star demon saturn time love '
+  weakAgainst: 'emotions mage world sun star demon saturn time love vulcan fairy
+    hero alien '

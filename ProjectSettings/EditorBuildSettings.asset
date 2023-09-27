@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Shop.unity
     guid: 8ee050aada03f03499961e6af46017eb
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: e21ae00bb6358d545af84285a4406935, type: 2}
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: c2cba8efc0d10fe4494bb4986120adcf, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: efe0dd15250675045abc119beb16564d, type: 2}

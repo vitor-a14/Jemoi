@@ -111,16 +111,13 @@ public class GameplayManager : MonoBehaviour
         if(gameOver) return;
 
         if(playerContainer.childCount <= 0 && selectedPlayerCard == null) 
-        {
             GameOver();
-        }
 
         if(inAnimation)
-        {
             attacker.position = Vector3.Lerp(attacker.position, target.position, 8 * Time.deltaTime);
-        }
+        else
+            enemyCardSpawnTimer += Time.deltaTime;
 
-        enemyCardSpawnTimer += Time.deltaTime;
         if(enemyCardSpawnTimer >= enemyCardSpawnDelay)
         {
             AddEnemyCard();

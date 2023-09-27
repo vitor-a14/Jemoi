@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 6
   name: shit
-  price: 200
+  price: 60
   rarity: 0
   artwork: {fileID: 21300000, guid: 5e436ee7e4e74fe4fbcac44a47cf72ea, type: 3}
   weakAgainst: 'emotions motorcycle car house bow explosion money sword bicycle man
     bacteria goose mage vampire zombie soap world sun star hurricane snake horse
     worm bee ladybird ghost diamond moon cat chicken dog crown demon skull fire spider
-    evil angry shame ninja skorpion dinossaur saturn axe time radiation love cold '
+    evil angry shame ninja skorpion dinossaur saturn axe time radiation love cold
+    bandit tiger vulcan fairy hero alien '

@@ -17,4 +17,4 @@ MonoBehaviour:
   price: 900
   rarity: 2
   artwork: {fileID: 21300000, guid: b9083f8cbbf27ca4f86ab3897c484759, type: 3}
-  weakAgainst: 'world sun star moon demon saturn axe time radiation '
+  weakAgainst: 'world sun star moon demon saturn axe time radiation nohumans '

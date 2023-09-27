@@ -17,4 +17,4 @@ MonoBehaviour:
   price: 1200
   rarity: 3
   artwork: {fileID: 21300000, guid: a1f93e82201801847921e1169a9c7cd6, type: 3}
-  weakAgainst: 'zombie world sun star worm diamond moon saturn time '
+  weakAgainst: 'zombie world sun star worm diamond moon saturn time vulcan '

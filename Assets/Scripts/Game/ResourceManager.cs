@@ -25,6 +25,8 @@ public class ResourceManager : MonoBehaviour
         }
 
         Application.targetFrameRate = 75;
+        Physics.simulationMode = SimulationMode.Script;
+        
         DontDestroyOnLoad(gameObject);
         Load();
     }

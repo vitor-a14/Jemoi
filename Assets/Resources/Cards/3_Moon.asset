@@ -17,4 +17,4 @@ MonoBehaviour:
   price: 680
   rarity: 2
   artwork: {fileID: 21300000, guid: e17b14f827cacee4da298bf9d19b0f92, type: 3}
-  weakAgainst: 'world sun star saturn time '
+  weakAgainst: 'world sun star saturn time alien '

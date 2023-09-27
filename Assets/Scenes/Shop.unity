@@ -403,12 +403,12 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -893,7 +893,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0053100586}
+  m_AnchoredPosition: {x: 0, y: 0.0053710938}
   m_SizeDelta: {x: 0, y: -0.0092773}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &546592901
@@ -1272,8 +1272,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1120.7145}
-  m_SizeDelta: {x: 800, y: 3642.0806}
+  m_AnchoredPosition: {x: 0, y: -1359.1373}
+  m_SizeDelta: {x: 800, y: 4118.9263}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1238099795
 CanvasRenderer:
