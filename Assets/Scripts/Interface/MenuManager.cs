@@ -17,6 +17,7 @@ public class MenuManager : MonoBehaviour
 
     public void StartButton()
     {
+        CardManager.Instance.UpdatePlayerDeck();
         SceneManager.LoadScene("Gameplay");
     }
 

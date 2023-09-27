@@ -35,7 +35,11 @@ public class CardManager : MonoBehaviour
     void Start()
     {
         sortedLoadedCards = Resources.LoadAll<CardObject>("Cards").OrderBy(card => card.price).ToList();
+        UpdatePlayerDeck();
+    }
 
+    public void UpdatePlayerDeck()
+    {
         foreach (CardObject card in sortedLoadedCards) 
         {
             cards[card.id] = card;
@@ -75,6 +79,8 @@ public class CardManager : MonoBehaviour
 
     public CardObject GetEnemyCard()
     {
-        return cards[Random.Range(0, cards.Count)];
+        Rarity maxRarity = GameplayManager.Instance.maxEnemyCardRarity;
+        List<CardObject> sortedEnemyCards = sortedLoadedCards.Where(card => card.rarity == maxRarity).ToList();
+        return sortedEnemyCards[Random.Range(0, sortedEnemyCards.Count)];
     }
 }

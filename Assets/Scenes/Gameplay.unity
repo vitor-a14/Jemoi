@@ -1978,7 +1978,6 @@ MonoBehaviour:
   maxEnemyCards: 12
   coinsPerWin: 4
   attackDuration: 700
-  enemyCardSpawnDelay: 8
   enemyCardInstance: {fileID: 2003682774928683078, guid: 1b513eabc259a654bbdee512e4c32987, type: 3}
   playerCardInstance: {fileID: 2003682774928683078, guid: 0082f7967878a6a4f8e17e60d8ef7add, type: 3}
   screen: {fileID: 438285364}
@@ -1987,6 +1986,27 @@ MonoBehaviour:
   gameOverScreen: {fileID: 1634309028}
   gameOverScore: {fileID: 892763321}
   gameOverCoins: {fileID: 146325433}
+  enemyCardSpawnDelay: 8
+  maxEnemyCardRarity: 0
+  difficulties:
+  - untilScore: 12
+    maxCardRarity: 0
+    enemyCardDelay: 4
+  - untilScore: 24
+    maxCardRarity: 0
+    enemyCardDelay: 3.5
+  - untilScore: 36
+    maxCardRarity: 1
+    enemyCardDelay: 3.5
+  - untilScore: 42
+    maxCardRarity: 1
+    enemyCardDelay: 3
+  - untilScore: 56
+    maxCardRarity: 2
+    enemyCardDelay: 3
+  - untilScore: 100
+    maxCardRarity: 3
+    enemyCardDelay: 3
 --- !u!1 &1238099792
 GameObject:
   m_ObjectHideFlags: 0
@@ -3298,6 +3318,77 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6080048620062589422, guid: 1b513eabc259a654bbdee512e4c32987, type: 3}
   m_PrefabInstance: {fileID: 2103259134}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2128120980
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2128120983}
+  - component: {fileID: 2128120982}
+  - component: {fileID: 2128120981}
+  m_Layer: 0
+  m_Name: Resource Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2128120981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128120980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f0912f3d525b7d4297c2a8c5113c1fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rarityColors:
+  - rarity: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+  - rarity: 1
+    color: {r: 0.17007834, g: 0.7558866, b: 0.9245283, a: 1}
+  - rarity: 2
+    color: {r: 1, g: 0.67560256, b: 0, a: 1}
+  - rarity: 3
+    color: {r: 0.6062274, g: 0, b: 1, a: 1}
+  sortedLoadedCards: []
+--- !u!114 &2128120982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128120980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5eb283bc25c64e4280296efd9f1c31e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coins: 0
+  maxScore: 0
+  playerEarnedCards: 
+  newPlayerScreen: {fileID: 0}
+--- !u!4 &2128120983
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128120980}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 644.53076, y: 2398.1619, z: 25.911552}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2140612651
 GameObject:
   m_ObjectHideFlags: 0
@@ -3366,3 +3457,4 @@ SceneRoots:
   - {fileID: 438285364}
   - {fileID: 790677264}
   - {fileID: 1170127719}
+  - {fileID: 2128120983}

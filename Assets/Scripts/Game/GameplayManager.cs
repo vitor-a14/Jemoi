@@ -1,7 +1,16 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+[System.Serializable]
+public struct Difficulty
+{
+    public int untilScore;
+    public Rarity maxCardRarity;
+    public float enemyCardDelay;
+}
 
 public class GameplayManager : MonoBehaviour
 {
@@ -9,17 +18,24 @@ public class GameplayManager : MonoBehaviour
 
     [HideInInspector] public PlayerCard selectedPlayerCard; 
 
+    [Header("General")]
     public int maxPlayerCards, maxEnemyCards;
     public int coinsPerWin;
 
+    [Header("Player And Enemy Cards")]
     public int attackDuration;
-    public float enemyCardSpawnDelay;
     public GameObject enemyCardInstance, playerCardInstance;
     public Transform screen, enemyContainer, playerContainer;
 
+    [Header("Game Over")]
     public GameObject gameOverScreen;
     public TMP_Text gameOverScore, gameOverCoins;
- 
+
+    [Header("Difficulty Management")]
+    public float enemyCardSpawnDelay;
+    public Rarity maxEnemyCardRarity;
+    public List<Difficulty> difficulties = new List<Difficulty>();
+
     private bool inAnimation = false;
     private Transform attacker, target;
     private float enemyCardSpawnTimer = 0f;
@@ -43,6 +59,7 @@ public class GameplayManager : MonoBehaviour
         screen = GameObject.FindGameObjectWithTag("Screen").transform;
         CoinText.Instance.UpdateCoinText(currentCoins);
         CoinText.Instance.UpdateScoreText(currentScore);
+        UpdateDifficulty();
     }
 
     public void SelectPlayerCard(PlayerCard playerCard)
@@ -78,6 +95,7 @@ public class GameplayManager : MonoBehaviour
             currentScore += 1;
             CoinText.Instance.UpdateCoinText(currentCoins);
             CoinText.Instance.UpdateScoreText(currentScore);
+            UpdateDifficulty();
             Destroy(enemyCard.gameObject);
         } 
         else 
@@ -153,5 +171,21 @@ public class GameplayManager : MonoBehaviour
         gameOverScreen.SetActive(true);
         gameOverScore.text = currentScore.ToString();
         gameOverCoins.text = currentCoins.ToString();
+    }
+
+    private void UpdateDifficulty()
+    {
+        enemyCardSpawnDelay = difficulties[difficulties.Count - 1].enemyCardDelay;
+        maxEnemyCardRarity = difficulties[difficulties.Count - 1].maxCardRarity;
+
+        foreach(Difficulty difficulty in difficulties)
+        {
+            if(currentScore <= difficulty.untilScore)
+            {
+                enemyCardSpawnDelay = difficulty.enemyCardDelay;
+                maxEnemyCardRarity = difficulty.maxCardRarity;
+                break;
+            }
+        }
     }
 }
