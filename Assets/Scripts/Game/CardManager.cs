@@ -19,7 +19,7 @@ public class CardManager : MonoBehaviour
 
     private List<CardObject> playerCards = new List<CardObject>();
 
-    void Start()
+    private void Awake()
     {
         if (Instance == null) 
         {
@@ -30,7 +30,10 @@ public class CardManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+    }
 
+    void Start()
+    {
         sortedLoadedCards = Resources.LoadAll<CardObject>("Cards").OrderBy(card => card.price).ToList();
 
         foreach (CardObject card in sortedLoadedCards) 

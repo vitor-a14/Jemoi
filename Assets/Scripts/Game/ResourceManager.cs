@@ -10,6 +10,8 @@ public class ResourceManager : MonoBehaviour
     public int maxScore;
     public List<int> playerEarnedCards = new List<int>();
 
+    public GameObject newPlayerScreen;
+
     private void Awake()
     {
         if (Instance == null) 
@@ -64,7 +66,6 @@ public class ResourceManager : MonoBehaviour
             earnedCards = "";
         }
 
-    
         PlayerPrefs.SetString("earnedCards", earnedCards);
     }
 
@@ -87,11 +88,9 @@ public class ResourceManager : MonoBehaviour
         }
 
         //started a new game (improve this in the future)
-        if(playerEarnedCards.Count <= 1 || playerEarnedCards == null)
+        if((playerEarnedCards.Count <= 1 || playerEarnedCards == null) && newPlayerScreen != null)
         {
-            playerEarnedCards.Add(4); //bow
-            playerEarnedCards.Add(2); //car
-            playerEarnedCards.Add(30); //cat
+            newPlayerScreen.SetActive(true);
         }
     }
 }
