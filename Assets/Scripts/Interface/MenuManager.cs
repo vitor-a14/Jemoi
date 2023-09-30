@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,17 +19,42 @@ public class MenuManager : MonoBehaviour
 
     public void StartButton()
     {
-        CardManager.Instance.UpdatePlayerDeck();
-        SceneManager.LoadScene("Gameplay");
+        StartCoroutine(StartButtonCoroutine());
     }
 
     public void ShopButton()
     {
-        SceneManager.LoadScene("Shop");
+        StartCoroutine(ShopButtonCoroutine());
     }
 
     public void RemoveAdsButton()
     {
-        
+        StartCoroutine(RemoveAdsButtonCoroutine());
+    }
+
+    private IEnumerator StartButtonCoroutine()
+    {
+        Fade.Instance.PlayFadeOut();
+
+        yield return new WaitForSeconds(Fade.Instance.duration);
+
+        CardManager.Instance.UpdatePlayerDeck();
+        SceneManager.LoadScene("Gameplay");
+    }
+
+    private IEnumerator ShopButtonCoroutine()
+    {
+        Fade.Instance.PlayFadeOut();
+
+        yield return new WaitForSeconds(Fade.Instance.duration);
+
+        SceneManager.LoadScene("Shop");
+    }
+
+    private IEnumerator RemoveAdsButtonCoroutine()
+    {
+        Fade.Instance.PlayFadeOut();
+
+        yield return new WaitForSeconds(Fade.Instance.duration);
     }
 }

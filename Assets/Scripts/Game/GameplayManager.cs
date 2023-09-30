@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TMPro;
@@ -148,18 +149,12 @@ public class GameplayManager : MonoBehaviour
 
     public void RetryButton()
     {
-        ResourceManager.Instance.AddCoins(currentCoins);
-        ResourceManager.Instance.SetMaxScore(currentScore);
-        ResourceManager.Instance.Save();
-        SceneManager.LoadScene("Gameplay");
+        StartCoroutine(RetryButtonCoroutine());
     }
 
     public void MenuButton()
     {
-        ResourceManager.Instance.AddCoins(currentCoins);
-        ResourceManager.Instance.SetMaxScore(currentScore);
-        ResourceManager.Instance.Save();
-        SceneManager.LoadScene("Main Menu");
+        StartCoroutine(MenuButtonCoroutine());
     }
 
     private void GameOver()
@@ -184,5 +179,29 @@ public class GameplayManager : MonoBehaviour
                 break;
             }
         }
+    }
+    
+    private IEnumerator RetryButtonCoroutine()
+    {
+        Fade.Instance.PlayFadeOut();
+
+        yield return new WaitForSeconds(Fade.Instance.duration);
+
+        ResourceManager.Instance.AddCoins(currentCoins);
+        ResourceManager.Instance.SetMaxScore(currentScore);
+        ResourceManager.Instance.Save();
+        SceneManager.LoadScene("Gameplay");
+    }
+
+    private IEnumerator MenuButtonCoroutine()
+    {
+        Fade.Instance.PlayFadeOut();
+
+        yield return new WaitForSeconds(Fade.Instance.duration);
+
+        ResourceManager.Instance.AddCoins(currentCoins);
+        ResourceManager.Instance.SetMaxScore(currentScore);
+        ResourceManager.Instance.Save();
+        SceneManager.LoadScene("Main Menu");
     }
 }

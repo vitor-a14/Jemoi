@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,7 +8,6 @@ public class ShopManager : MonoBehaviour
 
     public GameObject shopCardInstance;
     public Transform shopCardContainer;
-
     public ShopCard currentShopCard;
 
     private void Awake()
@@ -47,11 +47,18 @@ public class ShopManager : MonoBehaviour
 
     public void GoBackButton()
     {
-        SceneManager.LoadScene("Main Menu");
+        StartCoroutine(GoBackButtonCoroutine());
     }
 
     public void MoreCoinsButton()
     {
 
+    }
+
+    private IEnumerator GoBackButtonCoroutine()
+    {
+        Fade.Instance.PlayFadeOut();
+        yield return new WaitForSeconds(Fade.Instance.duration);
+        SceneManager.LoadScene("Main Menu");
     }
 }
