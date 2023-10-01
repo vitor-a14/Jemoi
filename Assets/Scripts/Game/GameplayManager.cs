@@ -30,7 +30,6 @@ public class GameplayManager : MonoBehaviour
 
     [Header("Game Over")]
     public GameObject gameOverScreen;
-    public TMP_Text gameOverScore, gameOverCoins;
 
     [Header("Difficulty Management")]
     public float enemyCardSpawnDelay;
@@ -159,10 +158,7 @@ public class GameplayManager : MonoBehaviour
 
     private void GameOver()
     {
-        gameOver = true;
-        gameOverScreen.SetActive(true);
-        gameOverScore.text = currentScore.ToString();
-        gameOverCoins.text = currentCoins.ToString();
+        StartCoroutine(GameOverCoroutine());
     }
 
     private void UpdateDifficulty()
@@ -179,6 +175,18 @@ public class GameplayManager : MonoBehaviour
                 break;
             }
         }
+    }
+
+    private IEnumerator GameOverCoroutine()
+    {
+        gameOver = true;
+        Fade.Instance.PlayFadeOut();
+
+        yield return new WaitForSeconds(Fade.Instance.duration);
+
+        Fade.Instance.PlayFadeIn();
+        gameOverScreen.SetActive(true);
+        gameOverScreen.GetComponent<GameOver>().TriggerGameOver(currentScore, currentCoins);
     }
     
     private IEnumerator RetryButtonCoroutine()
